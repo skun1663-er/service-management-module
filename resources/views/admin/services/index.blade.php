@@ -75,7 +75,7 @@
                                         @endif
                                     </td>
                                     <td>{{ $service->title }}</td>
-                                    <td>${{ number_format($service->price ?? 0, 2) }}</td>
+                                    <td>₹{{ number_format($service->price ?? 0, 2) }}</td>
                                     <td>
                                         <span class="badge {{ $service->status ? 'bg-success' : 'bg-danger' }}">
                                             {{ $service->status ? 'Active' : 'Inactive' }}
