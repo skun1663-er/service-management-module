@@ -12,7 +12,7 @@
                     </a>
                 </div>
 
-                < class="card-body">
+                <class class="card-body">
                     <!-- Search & Filter -->
                     <form method="GET" class="mb-4">
                         <div class="row g-3">
@@ -113,6 +113,7 @@
 
                     <!--double!! Pagination -->
                      {{ $services->appends(request()->query())->links()}}
+                </class>
                 </div>
             </div>
         </div>
