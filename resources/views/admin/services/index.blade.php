@@ -18,7 +18,7 @@
                         <div class="row g-3">
                             <div class="col-md-4">
                                 <input type="text" name="search" class="form-control"
-                                       placeholder="Search by title..."
+                                       placeholder="Search by title/product name..."
                                        value="{{ request('search') }}">
                             </div>
                             <div class="col-md-3">
@@ -26,8 +26,8 @@
                                     <option value="all" {{ request('status', 'all') == 'all' ? 'selected' : '' }}>
                                         All Status
                                     </option>
-                                    <option value="1" {{ request('status') == '1' ? 'selected' : '' }}>Active</option>
-                                    <option value="0" {{ request('status') == '0' ? 'selected' : '' }}>Inactive</option>
+                                    <option value="1" {{ request('status') == '1' ? 'selected' : '' }}>Active/In Stock</option>
+                                    <option value="0" {{ request('status') == '0' ? 'selected' : '' }}>Inactive/Out of Stock</option>
                                 </select>
                             </div>
                             <div class="col-md-2">
@@ -51,7 +51,7 @@
                             <thead>
                                 <tr>
                                     <th>Image</th>
-                                    <th>Title</th>
+                                    <th>Title/Product Name</th>
                                     <th>Price</th>
                                     <th>Status</th>
                                     <th>Created</th>
@@ -64,7 +64,7 @@
                                     <td>
                                         @if($service->image)
                                             <img src="{{ Storage::url($service->image) }}"
-                                                 alt="{{ $service->title }}"
+                                                 alt="{{ $service->title_or_product_name }}"
                                                  class="rounded"
                                                  style="width: 60px; height: 60px; object-fit: cover;">
                                         @else
@@ -74,11 +74,11 @@
                                             </div>
                                         @endif
                                     </td>
-                                    <td>{{ $service->title }}</td>
+                                    <td>{{ $service->title_or_product_name }}</td>
                                     <td>₹{{ number_format($service->price ?? 0, 2) }}</td>
                                     <td>
                                         <span class="badge {{ $service->status ? 'bg-success' : 'bg-danger' }}">
-                                            {{ $service->status ? 'Active' : 'Inactive' }}
+                                            {{ $service->status ? 'Active/In Stock' : 'Inactive/Out of Stock' }}
                                         </span>
                                     </td>
                                     <td>{{ $service->created_at->format('M d, Y') }}</td>
