@@ -6,7 +6,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h3 class="card-title mb-0">Services Management</h3>
+                    <h3 class="card-title mb-0">Services Management Module</h3>
                     <a href="{{ route('admin.services.create') }}" class="btn btn-primary">
                         <i class="fas fa-plus"></i> Add New Service
                     </a>
